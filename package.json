@@ -1,0 +1,24 @@
+{
+  "name": "unspash-crawler",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "startFetch": "node index.js",
+    "findMails": "node findEmails.js"
+  },
+  "dependencies": {
+    "axios": "^0.21.0",
+    "cookie-parser": "~1.4.4",
+    "crawler": "^1.3.0",
+    "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
+    "express": "~4.16.1",
+    "lodash": "^4.17.20",
+    "mongodb": "^3.6.3",
+    "mongoose": "^5.11.6",
+    "morgan": "~1.9.1",
+    "node-cron": "^2.0.3",
+    "node-schedule": "^1.3.2"
+  }
+}
