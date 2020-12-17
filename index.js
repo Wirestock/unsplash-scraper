@@ -2,7 +2,7 @@ const axios = require('axios')
 require('dotenv').config()
 const schedule = require('node-schedule')
 const _ = require('lodash')
-const User = require('models/User');
+const User = require('./models/User');
 
 const db = require('./models/db')
 
