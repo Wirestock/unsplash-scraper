@@ -24,12 +24,14 @@ const findEmail = new Crawler({
 
       if(res.request.uri.href.includes("https://unsplash.com/")) {
         const $ = res.$;
-        const userBlock = $('[data-test=\'users-route\']').html();
-        const emails = emailRegExp.exec(userBlock)
-        if (emails) {
-          contact.email = emails[0];
-        } else {
-          findEmail.queue(`https://unsplash.com/@${(res.options.uri.split('/@'))[1].split('/')[0]}/portfolio`)
+        if($) {
+          const userBlock = $('[data-test=\'users-route\']').html();
+          const emails = emailRegExp.exec(userBlock)
+          if (emails) {
+            contact.email = emails[0];
+          } else {
+            findEmail.queue(`https://unsplash.com/@${(res.options.uri.split('/@'))[1].split('/')[0]}/portfolio`)
+          }
         }
       } else {
         if (!res.request.uri.href.includes('https://unsplash.com/')) {
@@ -61,6 +63,6 @@ function onContactInsert (err, docs) {
 
 User.find({}, function (err, users) {
   users.forEach(function (user) {
-    findEmail.queue(`https://unsplash.com/@${user.username}/portfolio`)
+    // findEmail.queue(`https://unsplash.com/@${user.username}/portfolio`)
   })
 })
