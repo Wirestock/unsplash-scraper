@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node findEmails.js",
+    "start": "node index.js",
     "startFetch": "node index.js",
     "findMails": "node findEmails.js"
   },
